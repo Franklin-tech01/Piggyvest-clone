@@ -18,32 +18,41 @@ import pic6 from "./assets/iphoneInvest.avif";
 import vid from "./assets/Piggyvest Saver Of The Month.mp4";
 import "./App.css";
 import React, { useState, useEffect } from 'react';
-
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+// AOS.init();
 function App() {
+// State variables to track the visibility of each card
+const [showImage1, setShowImage1] = useState(false);
 
 
-  const [showImage, setShowImage] = useState(false);
+useEffect(() => {
+  const handleScroll = () => {
+    // Calculate the visibility of each card
+    const card1 = document.querySelector('.first__card:nth-child(1)');
+    const cardPosition1 = card1.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+    if (cardPosition1 < screenHeight * 0.8) {
+      setShowImage1(true);
+    } else {
+      setShowImage1(false);
+    }
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const card = document.querySelector('.first__card');
-      const cardPosition = card.getBoundingClientRect().top;
-      const screenHeight = window.innerHeight;
+  };
 
-      if (cardPosition < screenHeight * 0.8) {
-        setShowImage(true);
-      } else {
-        setShowImage(false);
-      }
-    };
+  window.addEventListener('scroll', handleScroll);
 
-    window.addEventListener('scroll', handleScroll);
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+}, []);
+
+useEffect(() => {
+  AOS.init()
+  AOS.refresh()
+}, [])
 
   return (
     // <main>
@@ -81,8 +90,8 @@ function App() {
               </button>
             </div>
           </div>
-          <div className="image__content">
-            <img src={mainImg} alt="" className="mainimg" />
+          <div className="image__content" >
+            <img src={mainImg} alt="" className="mainimg" data-aos="fade-left" />
             <div className="fallback__container">
               <div className="fallbacks">
                 <img src={card2} id="down" alt="" />
@@ -147,7 +156,7 @@ function App() {
                     />
                     <span>Piggybank</span>
                   </div>
-                  <div className={`cardimg ${showImage ? 'show' : ''}`}>
+                  <div className="cardimg" data-aos="fade-up-left"  data-aos-duration="1500">
                     <img src={pic1} alt="" />
                   </div>
                 </div>
@@ -173,7 +182,7 @@ function App() {
                     />
                     <span id="fixed">Safelock</span>
                   </div>
-                  <div  className={`cardimg ${showImage ? 'show' : ''}`}>
+                  <div  className="cardimg" data-aos="fade-up-right" data-aos-duration="1500">
                     <img src={pic2} alt="" />
                   </div>
                 </div>
@@ -196,7 +205,7 @@ function App() {
                     />
                     <span id="goal">Target Savings</span>
                   </div>
-                  <div  className={`cardimg ${showImage ? 'show' : ''}`}>
+                  <div  className="cardimg" data-aos="fade-up-left" data-aos-duration="1500" >
                     <img src={pic3} alt="" />
                   </div>
                 </div>
@@ -220,7 +229,7 @@ function App() {
                     />
                     <span id="naira">Flex Naira</span>
                   </div>
-                  <div  className={`cardimg ${showImage ? 'show' : ''}`}>
+                  <div  className="cardimg" data-aos="fade-up-right"  data-aos-duration="1500">
                     <img src={pic4} alt="" />
                   </div>
                 </div>
@@ -242,8 +251,8 @@ function App() {
                     />
                     <span id="dollar">Flex Dollar</span>
                   </div>
-                  <div className={`cardimg ${showImage ? 'show' : ''}`}>
-                    <img src={pic5} alt="" />
+                  <div className="cardimg" data-aos="fade-up-left">
+                    <img src={pic5} alt="" data-aos-duration="1500" />
                   </div>
                 </div>
               </div>
@@ -275,7 +284,7 @@ function App() {
             </div>
           </div>
           <div className="image__section">
-            <div className="second__cardimg">
+            <div className="second__cardimg" data-aos="fade-up" data-aos-duration="1500">
               <img src={pic6} alt="" />
             </div>
           </div>
