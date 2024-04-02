@@ -383,3 +383,103 @@ body {
   border-radius: 20px;
   max-width: 750px;
 }
+
+
+/* testimonial */
+.testimonial {
+  display:  flex;
+  align-items: center;
+  justify-content: space-around   ;
+  margin-top: 50px;
+}
+
+.text__session h2{
+  font-size: 2.5rem;
+  max-width: 650px;
+}
+
+.testimonial__img img{
+  width: 450px;
+}
+
+.google button{
+  background-color: transparent;
+  color: #0c1825;
+  border: 2px solid #0c1825;
+}
+
+.partners h2{
+  text-align: center;
+  color: #0c1825;
+  font-size: 2rem;
+}
+
+.partner__logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner__logo img{
+  width: 150px;
+  margin: 0 20px;
+}
+
+.navbar__container{
+  display: block;
+}
+
+footer{
+  background-color: white;
+  height: 100vh;
+}
+
+.footer__section  {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+ 
+}
+
+.listing{
+  display: flex;
+}
+
+
+.mainlist{
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.mainlist h3{
+  margin-left: 20px;
+  color: #0c1825;
+}
+
+
+.address{
+  color: #3d4f60;
+  text-align: end;
+}
+
+.para{
+  max-width: 900px;
+}
+
+.paras{
+  max-width: 600px;
+}
+
+.last__section p{
+  color: #3d4f60;
+}
+
+.last__section {
+  margin: 0 10% ;
+}
+
+.blue{
+  color: #0000ee !important;
+}

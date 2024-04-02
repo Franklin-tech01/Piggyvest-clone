@@ -16,43 +16,52 @@ import pic4 from "./assets/iPhone 14.avif";
 import pic5 from "./assets/iphone12.avif";
 import pic6 from "./assets/iphoneInvest.avif";
 import vid from "./assets/Piggyvest Saver Of The Month.mp4";
+import testimonial from "./assets/fallbackImg.png";
+import partner1 from "./assets/brand3.png";
+import partner2 from "./assets/brand2.png";
+import partner3 from "./assets/brand1.png";
+import partner4 from "./assets/pym-removebg-preview.svg";
+import partner5 from "./assets/fast.svg";
+import partner6 from "./assets/cio.svg";
+import Footernav from "./Components/Footernav.jsx";
 import "./App.css";
-import React, { useState, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
+import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import Logo from "./assets/logo.svg";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 // ..
 // AOS.init();
 function App() {
-// State variables to track the visibility of each card
-const [showImage1, setShowImage1] = useState(false);
+  // State variables to track the visibility of each card
+  const [showImage1, setShowImage1] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Calculate the visibility of each card
+      const card1 = document.querySelector(
+        ".first__card:nth-child(1)"
+      );
+      const cardPosition1 =
+        card1.getBoundingClientRect().top;
+      const screenHeight = window.innerHeight;
+      if (cardPosition1 < screenHeight * 0.8) {
+        setShowImage1(true);
+      } else {
+        setShowImage1(false);
+      }
+    };
 
-useEffect(() => {
-  const handleScroll = () => {
-    // Calculate the visibility of each card
-    const card1 = document.querySelector('.first__card:nth-child(1)');
-    const cardPosition1 = card1.getBoundingClientRect().top;
-    const screenHeight = window.innerHeight;
-    if (cardPosition1 < screenHeight * 0.8) {
-      setShowImage1(true);
-    } else {
-      setShowImage1(false);
-    }
+    window.addEventListener("scroll", handleScroll);
 
-  };
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-  window.addEventListener('scroll', handleScroll);
-
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-  };
-
-}, []);
-
-useEffect(() => {
-  AOS.init()
-  AOS.refresh()
-}, [])
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
 
   return (
     // <main>
@@ -90,8 +99,13 @@ useEffect(() => {
               </button>
             </div>
           </div>
-          <div className="image__content" >
-            <img src={mainImg} alt="" className="mainimg" data-aos="fade-left" />
+          <div className="image__content">
+            <img
+              src={mainImg}
+              alt=""
+              className="mainimg"
+              data-aos="fade-left"
+            />
             <div className="fallback__container">
               <div className="fallbacks">
                 <img src={card2} id="down" alt="" />
@@ -156,7 +170,11 @@ useEffect(() => {
                     />
                     <span>Piggybank</span>
                   </div>
-                  <div className="cardimg" data-aos="fade-up-left"  data-aos-duration="1500">
+                  <div
+                    className="cardimg"
+                    data-aos="fade-up-left"
+                    data-aos-duration="1500"
+                  >
                     <img src={pic1} alt="" />
                   </div>
                 </div>
@@ -182,7 +200,11 @@ useEffect(() => {
                     />
                     <span id="fixed">Safelock</span>
                   </div>
-                  <div  className="cardimg" data-aos="fade-up-right" data-aos-duration="1500">
+                  <div
+                    className="cardimg"
+                    data-aos="fade-up-right"
+                    data-aos-duration="1500"
+                  >
                     <img src={pic2} alt="" />
                   </div>
                 </div>
@@ -205,7 +227,11 @@ useEffect(() => {
                     />
                     <span id="goal">Target Savings</span>
                   </div>
-                  <div  className="cardimg" data-aos="fade-up-left" data-aos-duration="1500" >
+                  <div
+                    className="cardimg"
+                    data-aos="fade-up-left"
+                    data-aos-duration="1500"
+                  >
                     <img src={pic3} alt="" />
                   </div>
                 </div>
@@ -229,7 +255,11 @@ useEffect(() => {
                     />
                     <span id="naira">Flex Naira</span>
                   </div>
-                  <div  className="cardimg" data-aos="fade-up-right"  data-aos-duration="1500">
+                  <div
+                    className="cardimg"
+                    data-aos="fade-up-right"
+                    data-aos-duration="1500"
+                  >
                     <img src={pic4} alt="" />
                   </div>
                 </div>
@@ -251,8 +281,15 @@ useEffect(() => {
                     />
                     <span id="dollar">Flex Dollar</span>
                   </div>
-                  <div className="cardimg" data-aos="fade-up-left">
-                    <img src={pic5} alt="" data-aos-duration="1500" />
+                  <div
+                    className="cardimg"
+                    data-aos="fade-up-left"
+                  >
+                    <img
+                      src={pic5}
+                      alt=""
+                      data-aos-duration="1500"
+                    />
                   </div>
                 </div>
               </div>
@@ -284,7 +321,11 @@ useEffect(() => {
             </div>
           </div>
           <div className="image__section">
-            <div className="second__cardimg" data-aos="fade-up" data-aos-duration="1500">
+            <div
+              className="second__cardimg"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
               <img src={pic6} alt="" />
             </div>
           </div>
@@ -305,8 +346,121 @@ useEffect(() => {
         </div>
       </div>
 
+      {/* Testimonials */}
 
+      <div className="testimonial">
+        <div
+          className="testimonial__img"
+          data-aos="zoom-in-right"
+          data-aos-duration="1500"
+        >
+          <img src={testimonial} alt="" />
+        </div>
+        <div className="text__session">
+          <h2>
+            Join 4+ million people who save and invest with
+            us
+          </h2>
+          <div id="apple" className="google">
+            <button className="cta" id="btn2">
+              {" "}
+              <img
+                className="icons"
+                src={appleLogo}
+                id="app"
+              />
+              Get on iphone
+            </button>
 
+            <button className="cta" id="btn1">
+              {" "}
+              <img className="icons" src={googleLogo} /> Get
+              on android
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* partners */}
+      <footer>
+        <div className="partners">
+          <h2>As Featured in</h2>
+          <div className="partner__logo">
+            <img src={partner1} alt="" />
+            <img src={partner2} alt="" />
+            <img src={partner3} alt="" />
+            <img src={partner4} alt="" />
+            <img src={partner5} alt="" />
+            <img src={partner6} alt="" />
+          </div>
+        </div>
+
+        {/* navbar */}
+        <hr />
+        <Footernav />
+        <hr />
+
+        <div className="footer__section">
+          <div className="logo__area">
+            <img src={Logo} alt="" />
+          </div>
+
+          <div className="listing">
+            <div className="firstList">
+              <ul className="mainlist">
+                <h3>Products</h3>
+                <li>Piggybank</li>
+                <li>Invest</li>
+                <li>Safelock</li>
+                <li>Target Savings</li>
+                <li>Flex Naira</li>
+                <li>Flex Dollar</li>
+              </ul>
+            </div>
+            <div className="secondlist">
+              <ul className="mainlist">
+                <h3>Company</h3>
+                <li>About</li>
+                <li>Faqs</li>
+                <li>Blog</li>
+              </ul>
+            </div>
+            <div className="thirdlist">
+              <ul className="mainlist">
+                <h3>Legal</h3>
+                <li>Terms</li>
+                <li>Privacy</li>
+                <li>Security</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="address">
+            <p>Tesmot house, Abdulraman Okene close,</p>
+            <p>Victoria Island, Lagos Nigeria</p>
+            <p>contact@Piggyvest.com</p>
+
+            <p>+234 700 933 933 933</p>
+          </div>
+        </div>
+
+        <div className="last__section">
+        <hr />
+          <p className="para">
+            Piggyvest (formerly piggybank.ng) is the leading
+            online savings & investing platform in Nigeria.
+            For over 7 years, our customers have saved and
+            invested billions of Naira that they would
+            normally be tempted to spend.
+          </p>
+          <p className="paras">
+            PV Capital Limited is a fund manager duly
+            licensed by the Securities and Exchange
+            Commission (SEC) of Nigeria.
+          </p>
+          <p className="blue">2016 - 2023 PiggyTech Global Limited - RC 1405222</p>
+        </div>
+      </footer>
     </div>
     // </main>
   );
