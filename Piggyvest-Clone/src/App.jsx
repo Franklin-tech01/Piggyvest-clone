@@ -147,7 +147,8 @@ function App() {
         {/* Third phase */}
         <div className="thirdmain">
           <div className="third__container">
-            <div className="third__text--container">
+            <div className="third__text--container" data-aos="fade-up"
+              data-aos-duration="1500">
               <h2>5 ways to build your savings</h2>
               <p>
                 Earn 5%-15% when you save with any of these
@@ -300,14 +301,16 @@ function App() {
 
       {/* Forth section */}
       <div className="forth__background">
-        <h2>Diverse ways to invest</h2>
+        <h2 data-aos="fade-up"
+              data-aos-duration="1500" >Diverse ways to invest</h2>
         <p className="mainp">
           Grow your money and invest for your future
           confindently
         </p>
         <div className="second__card">
           <div className="second__card--text">
-            <h3>Earn Up to 25% returns</h3>
+            <h3 data-aos="fade-up"
+              data-aos-duration="1500">Earn Up to 25% returns</h3>
             <p>
               Invest securely and confindently on the go.
               Grow your money confindentlyby investing in
